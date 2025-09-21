@@ -27,11 +27,11 @@
 
 
 
-## 2 -) run the project
+## 1 -) run the project
 
 When you intended to run the project. it comes with two options . you could  go with any options you wish. it is completely up to you
 
-### 2.1-) running it through docker 
+### 1.1-) running it through docker 
 there arent much steps you need to follow. all you could do it to run the command below. if you see the outputs which means you are good to go.docker will take care of all the processes for you. just navigate to the "http://localhost:3200/api" for observing and testing the convenient services.
 
 ```bash
@@ -39,8 +39,8 @@ there arent much steps you need to follow. all you could do it to run the comman
 $ docker-compose up --build
 ```
 
-### 2.2-) running it as standalone app
-some people prefer not using docker on the local machine. for this case. you must ensure that you have copied the file ".env.example" and pasted as ".env" and set the variables accordingly. and execute the command below
+### 1.2-) running it as standalone app
+some people prefer not using docker on the local machine. for this case. you must ensure that you have copied the file ".env.example" and pasted as ".env" and set the variables accordingly. and execute the command below. if you follow the orders the app will be listening the port and so as to test against the services . just go to "http://localhost:3000/api"
 
 ```bash
 # installing dependencies from the cloud
