@@ -19,7 +19,7 @@ import { PaginationQuery } from 'src/pagination/dtos/pagination.query';
 
 @Controller('movies')
 export class MovieController {
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
   @ApiQuery({ name: 'pagination', type: PaginationQuery, required: false })
   @Get()

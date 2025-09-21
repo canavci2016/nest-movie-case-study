@@ -1,8 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class PaginationQuery {
-  @ApiProperty()
+  @ApiProperty({ example: 1 })
   number: number;
-  @ApiProperty()
+  @ApiProperty({ example: 10 })
   length: number;
 }
