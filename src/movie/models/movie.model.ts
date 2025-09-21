@@ -1,6 +1,7 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiSchema } from '@nestjs/swagger';
 import { MovieGenreTypes } from '../entities/movie.entity';
 
+@ApiSchema({ name: 'MovieResponseDto' })
 export class Movie {
   @ApiProperty()
   title: string;
