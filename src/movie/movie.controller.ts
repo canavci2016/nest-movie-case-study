@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   Query,
+  UseInterceptors,
   ValidationPipe,
 } from '@nestjs/common';
 import { Create } from './dtos/create';
@@ -17,7 +18,9 @@ import { ApiOkResponse, ApiQuery, ApiResponse } from '@nestjs/swagger';
 import { Pagination } from 'src/pagination/interfaces/pagination.interface';
 import { PaginationQuery } from 'src/pagination/dtos/pagination.query';
 import { Movie } from './models/movie.model';
+import { ConvertCastErrorToHttpInterceptor } from 'src/core/interceptors/convert-cast-error-to-http.interceptor';
 
+@UseInterceptors(ConvertCastErrorToHttpInterceptor)
 @Controller('movies')
 export class MovieController {
   constructor(private movieService: MovieService) { }

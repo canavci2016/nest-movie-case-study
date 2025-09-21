@@ -5,13 +5,16 @@ import {
   Get,
   Param,
   Post,
+  UseInterceptors,
   ValidationPipe,
 } from '@nestjs/common';
 import { DirectorService } from './director.service';
 import { Create } from './dtos/create';
 import { ApiOkResponse, ApiResponse } from '@nestjs/swagger';
 import { Director } from './models/director.model';
+import { ConvertCastErrorToHttpInterceptor } from 'src/core/interceptors/convert-cast-error-to-http.interceptor';
 
+@UseInterceptors(ConvertCastErrorToHttpInterceptor)
 @Controller('directors')
 export class DirectorController {
   constructor(private directorService: DirectorService) { }
