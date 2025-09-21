@@ -7,19 +7,22 @@ import {
   Param,
   Post,
   Put,
+  Query,
   ValidationPipe,
 } from '@nestjs/common';
 import { Create } from './dtos/create';
 import { MovieService } from './movie.service';
 import { Update } from './dtos/update';
+import { Pagination } from 'src/pagination/interfaces/pagination.interface';
+import { PaginationPipe } from 'src/pagination/pagination.pipe';
 
 @Controller('movies')
 export class MovieController {
   constructor(private movieService: MovieService) { }
 
   @Get()
-  async findAll() {
-    return this.movieService.find();
+  async findAll(@Query('pagination', PaginationPipe) pagination: Pagination) {
+    return this.movieService.find({ pagination: pagination });
   }
 
   @Post()
