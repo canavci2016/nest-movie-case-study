@@ -1,8 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger';
+import { Pagination } from '../interfaces/pagination.interface';
 
 export class PaginationQuery {
-  @ApiProperty({ example: 1 })
-  number: number;
-  @ApiProperty({ example: 10 })
-  length: number;
+  @ApiProperty({
+    type: 'object',
+    properties: {
+      number: {
+        type: 'number',
+        example: 1,
+      },
+      length: {
+        type: 'number',
+        example: 20,
+      },
+    },
+  })
+  pagination: Pagination;
 }
