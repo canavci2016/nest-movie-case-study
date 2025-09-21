@@ -8,7 +8,7 @@ import {
   IsNumber,
   IsOptional,
 } from 'class-validator';
-import { MovieGenreTypes } from '../models/movie.model';
+import { MovieGenreTypes } from '../entities/movie.entity';
 import { ApiProperty, ApiSchema } from '@nestjs/swagger';
 
 @ApiSchema({ name: 'UpdateMovieDto' })

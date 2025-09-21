@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Director } from './models/director.model';
+import { Director } from './entities/director.entity';
 import { Model } from 'mongoose';
 import { Pagination } from 'src/pagination/interfaces/pagination.interface';
 
@@ -43,5 +43,4 @@ export class DirectorService {
 
     return this.directorModel.findOne(filter).exec();
   }
-
 }

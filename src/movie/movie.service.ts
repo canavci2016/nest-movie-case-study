@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { Pagination } from 'src/pagination/interfaces/pagination.interface';
-import { Movie } from './models/movie.model';
+import { Movie } from './entities/movie.entity';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 import { DirectorService } from 'src/director/director.service';

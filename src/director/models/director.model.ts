@@ -1,23 +1,17 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
+import { ApiProperty } from '@nestjs/swagger';
 
-export type DirectorDocument = HydratedDocument<Director>;
-
-@Schema()
 export class Director {
-  @Prop({ required: true })
+  @ApiProperty()
   firstName: string;
 
-  @Prop({ required: true })
+  @ApiProperty()
   lastName: string;
 
-  @Prop({ required: true, type: Date })
+  @ApiProperty()
   birthDate: Date;
 
-  @Prop({ required: true })
+  @ApiProperty()
   bio: string;
-
+  @ApiProperty()
   _id: string;
 }
-
-export const DirectorSchema = SchemaFactory.createForClass(Director);

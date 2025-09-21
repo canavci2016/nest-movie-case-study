@@ -1,42 +1,28 @@
-import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import mongoose, { HydratedDocument } from 'mongoose';
-import { Director } from 'src/director/models/director.model';
+import { ApiProperty } from '@nestjs/swagger';
+import { MovieGenreTypes } from '../entities/movie.entity';
 
-export type MovieDocument = HydratedDocument<Movie>;
-
-export enum MovieGenreTypes {
-  scary = 'scary',
-  action = 'action',
-  comedy = 'comedy',
-}
-
-@Schema()
 export class Movie {
-  @Prop({ required: true })
+  @ApiProperty()
   title: string;
 
-  @Prop({ required: true })
+  @ApiProperty()
   description: string;
 
-  @Prop({ required: true, type: Date })
+  @ApiProperty({ type: Date })
   releaseDate: Date;
 
-  @Prop({ required: true, enum: MovieGenreTypes })
+  @ApiProperty({ required: true, enum: MovieGenreTypes })
   genre: string;
 
-  @Prop({ required: true, type: Number })
-  rating: number;
+  @ApiProperty()
+  rating: string;
 
-  @Prop({ required: true })
+  @ApiProperty()
   imdbId: string;
 
-  @Prop({ required: true })
+  @ApiProperty()
   directorId: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Director' })
-  director: Director;
-
+  @ApiProperty()
   _id: string;
 }
-
-export const MovieSchema = SchemaFactory.createForClass(Movie);

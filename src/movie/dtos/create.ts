@@ -8,9 +8,8 @@ import {
   Matches,
   IsNumber,
 } from 'class-validator';
-import { MovieGenreTypes } from '../models/movie.model';
+import { MovieGenreTypes } from '../entities/movie.entity';
 import { ApiProperty, ApiSchema } from '@nestjs/swagger';
-
 
 @ApiSchema({ name: 'CreateMovieDto' })
 export class Create {
