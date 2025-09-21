@@ -3,7 +3,6 @@ import {
   Controller,
   Delete,
   Get,
-  NotFoundException,
   Param,
   Post,
   Put,
@@ -38,14 +37,6 @@ export class MovieController {
     @Param('id') id: string,
     @Body(new ValidationPipe()) updateDto: Update,
   ) {
-    const movie = await this.movieService.findOne({ _id: id });
-
-    if (!movie) {
-      throw new NotFoundException(
-        'there is no valid movie matches with given information',
-      );
-    }
-
     return this.movieService.update(id, updateDto);
   }
 

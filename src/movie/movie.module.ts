@@ -3,10 +3,12 @@ import { MovieService } from './movie.service';
 import { MovieController } from './movie.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { Movie, MovieSchema } from './models/movie.model';
+import { DirectorModule } from 'src/director/director.module';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: Movie.name, schema: MovieSchema }]),
+    DirectorModule,
   ],
   providers: [MovieService],
   controllers: [MovieController],

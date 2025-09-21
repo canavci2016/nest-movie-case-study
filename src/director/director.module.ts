@@ -12,5 +12,6 @@ import { Director, DirectorSchema } from './models/director.model';
   ],
   providers: [DirectorService],
   controllers: [DirectorController],
+  exports: [DirectorService],
 })
-export class DirectorModule {}
+export class DirectorModule { }
