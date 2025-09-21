@@ -18,7 +18,11 @@ export class MovieService {
       ...(options?.filter?._id ? { _id: options?.filter?._id } : {}),
     };
 
-    return this.movieModel.find(filter).exec();
+    const page = options?.pagination?.number || 0;
+    const limit = options?.pagination?.length || 10;
+    const offset = (page - 1) * limit;
+
+    return this.movieModel.find(filter, {}, { skip: offset, limit }).exec();
   }
 
   async findOne(options: Partial<Pick<Movie, '_id'>>) {
